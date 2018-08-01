@@ -2,7 +2,7 @@ import { Item } from './../data/item';
 import { Component, OnInit } from '@angular/core';
 import { ItemSearchService } from './item-search.service';
 import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-search',

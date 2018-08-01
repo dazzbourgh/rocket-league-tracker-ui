@@ -1,5 +1,3 @@
-import { AppModule } from './../app.module';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Item } from '../data/item';
