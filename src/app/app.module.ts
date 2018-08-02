@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
 import { ItemSearchService } from './item-search/item-search.service';
+import { OfferFilterComponent } from './offer-filter/offer-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemSearchComponent
+    ItemSearchComponent,
+    OfferFilterComponent
   ],
   imports: [
     NgbModule.forRoot(),

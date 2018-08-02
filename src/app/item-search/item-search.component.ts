@@ -1,11 +1,11 @@
-import { Item } from './../data/item';
-import { Component, OnInit } from '@angular/core';
+import { Item } from '../data/item';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ItemSearchService } from './item-search.service';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-item-search',
+  selector: 'rl-item-search',
   templateUrl: './item-search.component.html',
   styleUrls: ['./item-search.component.css']
 })
@@ -14,6 +14,8 @@ export class ItemSearchComponent implements OnInit {
   constructor(private itemSearchService: ItemSearchService) { }
 
   item: Item;
+  @Output()
+  fetched = new EventEmitter<Item>();
 
   ngOnInit() {
   }
@@ -27,6 +29,9 @@ export class ItemSearchComponent implements OnInit {
         : this.itemSearchService.getItems(term)));
   }
 
-  resultFormatter = (item: Item) => item.name;
+  resultFormatter = (item: Item) => {
+    this.fetched.emit(item);
+    return item.name;
+  }
   inputFormatter = (item: Item) => item.name;
 }

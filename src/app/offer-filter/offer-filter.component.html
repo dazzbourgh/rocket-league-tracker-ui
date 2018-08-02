@@ -1,0 +1,18 @@
+<rl-item-search (fetched)="setItem($event)"></rl-item-search>
+<br/>
+<h2>
+  <div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>SEARCH TYPE</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button class="dropdown-item" (click)="searchType=1">Have</button>
+      <button class="dropdown-item" (click)="searchType=2">Want</button>
+    </div>
+  </div>
+  <div class="badge badge-secondary left-indent">{{searchCaption}}</div>
+</h2>
+<br/>
+<label>PAGES AMOUNT TO SCAN</label>
+<br/>
+<input type="number" [(ngModel)]="pagesNum" class="form-control" />
+<br/>
+<button type="button" class="btn btn-primary" (click)="submit()">SEARCH</button>
