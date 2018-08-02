@@ -1,6 +1,10 @@
-.container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: auto;
+.rl-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.rl-container-inner {
+  width: 50vw;
 }
