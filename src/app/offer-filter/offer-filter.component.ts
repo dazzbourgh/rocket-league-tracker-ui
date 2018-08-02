@@ -21,7 +21,7 @@ export class OfferFilterComponent implements OnInit {
 
   get searchCaption() {
     if (this.searchType) {
-      return (this.searchType === 1) ? 'HAVE' : 'WANT';
+      return (this.searchType === 1) ? 'WANT' : 'HAVE';
     } else {
       return '';
     }
