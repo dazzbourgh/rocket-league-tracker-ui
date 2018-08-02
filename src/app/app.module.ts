@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { ItemSearchComponent } from './item-search/item-search.component';
 import { ItemSearchService } from './item-search/item-search.service';
 import { OfferFilterComponent } from './offer-filter/offer-filter.component';
+import { OfferTabComponent } from './offer-tab/offer-tab.component';
+import { OfferItemComponent } from './offer-item/offer-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemSearchComponent,
-    OfferFilterComponent
+    OfferFilterComponent,
+    OfferTabComponent,
+    OfferItemComponent
   ],
   imports: [
     NgbModule.forRoot(),

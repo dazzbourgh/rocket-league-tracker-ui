@@ -1,0 +1,5 @@
+<rl-offer-filter (fetched)="displayOffers($event)"></rl-offer-filter>
+<div *ngFor="let offer of offers">
+  <br/>
+  <rl-offer-item [has]="offer.has" [wants]="offer.wants" [link]="offer.link"></rl-offer-item>
+</div>

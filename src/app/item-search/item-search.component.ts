@@ -6,8 +6,7 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'rl-item-search',
-  templateUrl: './item-search.component.html',
-  styleUrls: ['./item-search.component.css']
+  templateUrl: './item-search.component.html'
 })
 export class ItemSearchComponent implements OnInit {
 
