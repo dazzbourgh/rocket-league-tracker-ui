@@ -4,8 +4,8 @@ export class Item {
     this._name = name;
   }
 
-  private _id: Number;
-  private _name: String;
+  private readonly _id: Number;
+  private readonly _name: String;
 
   get id() {
     return this._id;

@@ -9,15 +9,14 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class OfferFilterComponent implements OnInit {
 
-  constructor(private offerFilterService: OfferFilterService) { }
+  constructor(private offerFilterService: OfferFilterService) {
+  }
 
   item: Item;
   searchType: number;
   pagesNum: number;
   @Output()
   fetched: EventEmitter<Offer[]> = new EventEmitter<Offer[]>();
-
-  _searchCaption: string;
 
   get searchCaption() {
     if (this.searchType) {
@@ -35,7 +34,7 @@ export class OfferFilterComponent implements OnInit {
   }
 
   submit() {
-    this.offerFilterService.fetchItems(this.item.id, this.searchType, this.pagesNum)
+    this.offerFilterService.fetchOffers(this.item.id, this.searchType, this.pagesNum)
       .subscribe((offers: Offer[]) => {
         this.fetched.emit(offers);
       });

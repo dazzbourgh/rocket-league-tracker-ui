@@ -10,7 +10,8 @@ import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 })
 export class ItemSearchComponent implements OnInit {
 
-  constructor(private itemSearchService: ItemSearchService) { }
+  constructor(private itemSearchService: ItemSearchService) {
+  }
 
   item: Item;
   @Output()
@@ -32,5 +33,6 @@ export class ItemSearchComponent implements OnInit {
     this.fetched.emit(item);
     return item.name;
   }
+
   inputFormatter = (item: Item) => item.name;
 }
