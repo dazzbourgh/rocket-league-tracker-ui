@@ -20,14 +20,13 @@ export class ItemSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  search = (text$: Observable<string>) => {
-    return text$.pipe(
-      debounceTime(200),
-      distinctUntilChanged(),
-      switchMap(term => term.length < 2
-        ? Promise.resolve([])
-        : this.itemSearchService.getItems(term)));
-  }
+  search = (text$: Observable<string>) => text$.pipe(
+    debounceTime(200),
+    distinctUntilChanged(),
+    switchMap(term => term.length < 2
+      ? Promise.resolve([])
+      : this.itemSearchService.getItems(term)))
+
 
   resultFormatter = (item: Item) => {
     this.fetched.emit(item);
