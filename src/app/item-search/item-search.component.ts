@@ -1,8 +1,8 @@
-import { Item } from '../data/item';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ItemSearchService } from './item-search.service';
-import { Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import {Item} from '../data/item';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ItemSearchService} from './item-search.service';
+import {Observable, of} from 'rxjs';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'rl-item-search',
@@ -21,17 +21,16 @@ export class ItemSearchComponent implements OnInit {
   }
 
   search = (text$: Observable<string>) => text$.pipe(
-    debounceTime(200),
+    debounceTime(300),
     distinctUntilChanged(),
     switchMap(term => term.length < 2
-      ? Promise.resolve([])
-      : this.itemSearchService.getItems(term)))
-
+      ? of([])
+      : this.itemSearchService.getItems(term)));
 
   resultFormatter = (item: Item) => {
     this.fetched.emit(item);
     return item.name;
-  }
+  };
 
   inputFormatter = (item: Item) => item.name;
 }
